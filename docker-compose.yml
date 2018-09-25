@@ -5,7 +5,7 @@ version: "3"
 
 services:
   app:
-    image: markoshust/magento2-nginx:1.13-0
+    image: markoshust/magento-nginx:1.13-4
     links:
       - db
       - phpfpm
@@ -17,7 +17,7 @@ services:
       - www
 
   phpfpm:
-    image: markoshust/magento2-php:7.1-fpm-0
+    image: markoshust/magento-php:7.1-fpm-8
     links:
       - db
     volumes: *appvolumes
@@ -31,7 +31,7 @@ services:
     env_file: docker/env/mysql.env
 
   setup:
-    image: markoshust/magento2-php:7.1-fpm-0
+    image: markoshust/magento-php:7.1-fpm-8
     command: /usr/local/bin/mage-setup
     links:
       - db

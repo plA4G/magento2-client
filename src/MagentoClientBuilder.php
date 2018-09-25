@@ -127,7 +127,8 @@ class MagentoClientBuilder
             $authentication,
             new AdminTokenApi($resourceClient),
             new ProductApi($resourceClient, $pageFactory, $cursorFactory),
-            new OrderApi($resourceClient, $pageFactory, $cursorFactory)
+            new OrderApi($resourceClient, $pageFactory, $cursorFactory),
+            new AllegroOfferApi($resourceClient, $pageFactory. $cursorFactory)
         );
 
         return $client;
