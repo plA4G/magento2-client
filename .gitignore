@@ -1,2 +1,7 @@
+.buildpath
+.idea
+.project
+.settings
+composer.lock
 bin
 vendor
