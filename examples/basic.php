@@ -4,15 +4,15 @@ require('./../vendor/autoload.php');
 
 use Eoko\Magento2\Client\MagentoClientBuilder;
 use Eoko\Magento2\Client\Security\AdminAuthentication;
-
+use Eoko\Magento2\Client\Search;
 // We initiate the client builder
-$clientBuilder = new MagentoClientBuilder('http://m2.localhost:8000/rest/default');
+$clientBuilder = new MagentoClientBuilder('http://magento/rest/all');
 
 // Create an unauthenticated client
 $unAuthenticatedClient = $clientBuilder->buildAuthenticatedClient();
 
 // Get an admin token
-$token = $unAuthenticatedClient->getAdminTokenApi()->getAdminToken('magento2', 'magento2');
+$token = $unAuthenticatedClient->getAdminTokenApi()->getAdminToken('admin', 'admin123');
 
 // Authentication from admin token
 $authentication = AdminAuthentication::fromAdminToken($token);
@@ -21,8 +21,8 @@ $authentication = AdminAuthentication::fromAdminToken($token);
 $authenticatedClient = $clientBuilder->buildAuthenticatedClient($authentication);
 
 // Retrieve the 10 first product
-$productsCursor = $authenticatedClient->getProductApi()->all(10);
+$productsCursor = $authenticatedClient->getAllegroOfferApi()->all(10, null);
 
 foreach ($productsCursor as $product) {
-    echo 'We found the following product : ' . $product['sku'] . "\n";
+    echo 'Allegro offers : ' . $product['name'] . "<br>";
 }

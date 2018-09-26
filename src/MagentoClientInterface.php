@@ -12,6 +12,7 @@
 namespace Eoko\Magento2\Client;
 
 use Eoko\Magento2\Client\Api\AdminTokenApiInterface;
+use Eoko\Magento2\Client\Api\AllegroOfferApiInterface;
 use Eoko\Magento2\Client\Api\OrderApiInterface;
 use Eoko\Magento2\Client\Api\ProductApiInterface;
 
@@ -47,6 +48,13 @@ interface MagentoClientInterface
      * @return OrderApiInterface
      */
     public function getOrderApi(): OrderApiInterface;
+
+    /**
+     * Gets the Order API.
+     *
+     * @return OrderApiInterface
+     */
+    public function getAllegroOfferApi(): AllegroOfferApiInterface;
 
     /**
      *  Gets the admin token API.

@@ -5,3 +5,4 @@
 composer.lock
 bin
 vendor
+index.php

@@ -66,7 +66,7 @@ class OrderApi implements OrderApiInterface
     /**
      * {@inheritdoc}
      */
-    public function all($limit = 100, ?SearchCriteria $searchCriteria): ResourceCursorInterface
+    public function all($limit = 100, ?SearchCriteria $searchCriteria=null): ResourceCursorInterface
     {
         $firstPage = $this->listPerPage($searchCriteria);
 

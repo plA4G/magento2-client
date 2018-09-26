@@ -15,6 +15,7 @@ use Eoko\Magento2\Client\Api\AdminTokenApi;
 use Eoko\Magento2\Client\Api\AuthenticationApi;
 use Eoko\Magento2\Client\Api\OrderApi;
 use Eoko\Magento2\Client\Api\ProductApi;
+use Eoko\Magento2\Client\Api\AllegroOfferApi;
 use Eoko\Magento2\Client\Client\AuthenticatedHttpClient;
 use Eoko\Magento2\Client\Client\HttpClient;
 use Eoko\Magento2\Client\Client\ResourceClient;
@@ -128,7 +129,7 @@ class MagentoClientBuilder
             new AdminTokenApi($resourceClient),
             new ProductApi($resourceClient, $pageFactory, $cursorFactory),
             new OrderApi($resourceClient, $pageFactory, $cursorFactory),
-            new AllegroOfferApi($resourceClient, $pageFactory. $cursorFactory)
+            new AllegroOfferApi($resourceClient, $pageFactory, $cursorFactory)
         );
 
         return $client;

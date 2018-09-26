@@ -1,19 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: michal
- * Date: 25.09.18
- * Time: 12:02
- */
 
 namespace Eoko\Magento2\Client\Api;
 
-
-use Eoko\Magento2\Client\Exception\InvalidArgumentException;
+use Eoko\Magento2\Client\Client\ResourceClientInterface;
+use Eoko\Magento2\Client\Pagination\PageFactoryInterface;
 use Eoko\Magento2\Client\Pagination\PageInterface;
+use Eoko\Magento2\Client\Pagination\ResourceCursorFactoryInterface;
 use Eoko\Magento2\Client\Pagination\ResourceCursorInterface;
 use Eoko\Magento2\Client\Search\SearchCriteria;
-use HttpException;
 
 class AllegroOfferApi implements AllegroOfferApiInterface
 {
@@ -117,7 +111,7 @@ class AllegroOfferApi implements AllegroOfferApiInterface
      *
      * @return ResourceCursorInterface
      */
-    public function all($limit = 100, ?SearchCriteria $searchCriteria): ResourceCursorInterface
+    public function all($limit = 100, ?SearchCriteria $searchCriteria=null): ResourceCursorInterface
     {
         $firstPage = $this->listPerPage($searchCriteria);
 

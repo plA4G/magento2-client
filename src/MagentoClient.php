@@ -12,6 +12,7 @@
 namespace Eoko\Magento2\Client;
 
 use Eoko\Magento2\Client\Api\AdminTokenApiInterface;
+use Eoko\Magento2\Client\Api\AllegroOfferApiInterface;
 use Eoko\Magento2\Client\Api\OrderApiInterface;
 use Eoko\Magento2\Client\Api\ProductApiInterface;
 use Eoko\Magento2\Client\Security\Authentication;
@@ -31,6 +32,9 @@ class MagentoClient implements MagentoClientInterface
     /** @var OrderApiInterface */
     protected $orderApi;
 
+    /** @var AllegroOfferApiInterface */
+    protected $offerApi;
+
     /** @var AdminTokenApiInterface */
     private $adminTokenApi;
 
@@ -39,17 +43,20 @@ class MagentoClient implements MagentoClientInterface
      * @param AdminTokenApiInterface       $adminTokenApi
      * @param ProductApiInterface          $productApi
      * @param OrderApiInterface            $orderApi
+     * @param AllegroOfferApiInterface     $offerApi
      */
     public function __construct(
         AuthenticationInterface $authentication = null,
         AdminTokenApiInterface $adminTokenApi,
         ProductApiInterface $productApi,
-        OrderApiInterface $orderApi
+        OrderApiInterface $orderApi,
+        AllegroOfferApiInterface $offerApi
     ) {
         $this->authentication = $authentication;
         $this->adminTokenApi = $adminTokenApi;
         $this->productApi = $productApi;
         $this->orderApi = $orderApi;
+        $this->offerApi = $offerApi;
     }
 
     /**
@@ -90,5 +97,15 @@ class MagentoClient implements MagentoClientInterface
     public function getAdminTokenApi(): AdminTokenApiInterface
     {
         return $this->adminTokenApi;
+    }
+
+    /**
+     * Gets the Order API.
+     *
+     * @return OrderApiInterface
+     */
+    public function getAllegroOfferApi(): AllegroOfferApiInterface
+    {
+        return $this->offerApi;
     }
 }
