@@ -12,7 +12,7 @@ $clientBuilder = new MagentoClientBuilder('http://magento/rest/all');
 $unAuthenticatedClient = $clientBuilder->buildAuthenticatedClient();
 
 // Get an admin token
-$token = $unAuthenticatedClient->getAdminTokenApi()->getAdminToken('admin', 'admin123');
+echo $token = $unAuthenticatedClient->getAdminTokenApi()->getAdminToken('admin', 'admin123');
 
 // Authentication from admin token
 $authentication = AdminAuthentication::fromAdminToken($token);

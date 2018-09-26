@@ -51,7 +51,7 @@ class AllegroOfferApi implements AllegroOfferApiInterface
      */
     public function create($code, array $data = []): array
     {
-        // TODO: Implement create() method.
+        return $this->resourceClient->createResource(static::OFFERS_URI, [], ['allegroOffer' => $data]);
     }
 
     /**
